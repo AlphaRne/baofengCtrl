@@ -86,7 +86,6 @@ func (b *BfIo) initialComm() error {
 	} else {
 		fmt.Printf("res:%v\n", string(res))
 	}
-
 	/*
 		key Selection:
 		Cmd: "SEND" + DATA...
@@ -240,6 +239,8 @@ func main() {
 
 	p.ResetInputBuffer()
 	// 0xF000, erase executed when addr is sector start (0xF000)
+	// no encryption is used for data from 0xF000 on
+
 
 	bd, err := bf.ReadMemory(-1, 0xF000, 0x1000)
 	if nil != err {
